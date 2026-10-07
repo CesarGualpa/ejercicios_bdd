@@ -59,3 +59,32 @@ VALUES (14, 'Elena', 'Gualpa', 26, 'Base de Datos', '2026-06-01');
 
 INSERT INTO estudiantes
 VALUES (15, 'Gabriel', 'Ortiz', 16, 'Redes', '2026-06-15');
+
+-- CONSULTAS SELECT
+
+-- 1. Mostrar todos los registros
+SELECT * FROM estudiantes;
+
+-- 2. Mostrar únicamente nombres y curso
+SELECT nombres, curso
+FROM estudiantes;
+
+-- 3. Mostrar estudiantes mayores de 18 años
+SELECT * FROM estudiantes
+WHERE edad > 18;
+
+-- 4. Mostrar estudiantes entre 18 y 25 años
+SELECT * FROM estudiantes
+WHERE edad BETWEEN 18 AND 25;
+
+-- 5. Mostrar estudiantes del curso Base de Datos
+SELECT * FROM estudiantes
+WHERE curso = 'Base de Datos';
+
+-- 6. Mostrar estudiantes registrados después de 2026-03-01
+SELECT * FROM estudiantes
+WHERE fecha_registro > '2026-03-01';
+
+-- 7. Mostrar estudiantes registrados entre 2026-01-01 y 2026-04-30
+SELECT * FROM estudiantes
+WHERE fecha_registro BETWEEN '2026-01-01' AND '2026-04-30';
