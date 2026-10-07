@@ -117,3 +117,26 @@ UPDATE estudiantes
 SET nombres = 'Luis Alberto',
 	fecha_registro = '2026-03-05'
 WHERE id_estudiante = 5;
+
+-- ELIMINAR DATOS
+
+-- 1. Eliminar por ID
+DELETE FROM estudiantes
+WHERE id_estudiante = 15;
+
+-- 2. Eliminar por curso
+DELETE FROM estudiantes
+WHERE curso = 'Redes';
+
+-- 3. Eliminar por edad
+DELETE FROM estudiantes
+WHERE edad = 30;
+
+-- 4. Eliminar por fecha
+DELETE FROM estudiantes
+WHERE fecha_registro = '2026-05-20';
+
+-- 5. Eliminar utilizando nombre y apellido
+DELETE FROM estudiantes
+WHERE nombres = 'Camila'
+AND apellidos = 'Vega';
