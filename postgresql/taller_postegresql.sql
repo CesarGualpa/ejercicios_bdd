@@ -156,3 +156,26 @@ WHERE fecha_registro > '2026-03-01';
 -- 7. Mostrar estudiantes registrados entre 2026-01-01 y 2026-04-30
 SELECT * FROM estudiantes
 WHERE fecha_registro BETWEEN '2026-01-01' AND '2026-04-30';
+
+-- CONSULTAS CON FECHAS
+
+-- 1. Registrados después de 2026-02-01
+SELECT * FROM estudiantes
+WHERE fecha_registro > '2026-02-01';
+
+-- 2. Registrados antes de 2026-05-01
+SELECT * FROM estudiantes
+WHERE fecha_registro < '2026-05-01';
+
+-- 3. Registrados entre dos fechas
+SELECT * FROM estudiantes
+WHERE fecha_registro BETWEEN '2026-02-01' AND '2026-05-01';
+
+-- 4. Registrados exactamente en 2026-03-15
+SELECT * FROM estudiantes
+WHERE fecha_registro = '2026-03-15';
+
+-- 5. Estudiantes de Programacion registrados después de 2026-01-01
+SELECT * FROM estudiantes
+WHERE curso = 'Programacion'
+AND fecha_registro > '2026-01-01';
