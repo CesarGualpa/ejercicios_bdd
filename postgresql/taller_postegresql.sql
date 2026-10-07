@@ -13,52 +13,57 @@ CREATE TABLE estudiantes(
 	CONSTRAINT estudiantes_pk PRIMARY KEY(id_estudiante)
 );
 
+-- AGREGAR COLUMNA CORREO
+
+ALTER TABLE estudiantes
+ADD COLUMN correo VARCHAR(100);
+
 -- INSERTAR DATOS
 
 INSERT INTO estudiantes
-VALUES (1, 'Juan', 'Perez', 20, 'Programacion', '2026-01-10');
+VALUES (1, 'Juan', 'Perez', 20, 'Programacion', '2026-01-10', 'juan.perez@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (2, 'Maria', 'Lopez', 18, 'Base de Datos', '2026-01-20');
+VALUES (2, 'Maria', 'Lopez', 18, 'Base de Datos', '2026-01-20', 'maria.lopez@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (3, 'Carlos', 'Ruiz', 25, 'Redes', '2026-02-05');
+VALUES (3, 'Carlos', 'Ruiz', 25, 'Redes', '2026-02-05', 'carlos.ruiz@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (4, 'Ana', 'Torres', 22, 'Base de Datos', '2026-02-15');
+VALUES (4, 'Ana', 'Torres', 22, 'Base de Datos', '2026-02-15', 'ana.torres@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (5, 'Luis', 'Gomez', 17, 'Programacion', '2026-03-01');
+VALUES (5, 'Luis', 'Gomez', 17, 'Programacion', '2026-03-01', 'luis.gomez@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (6, 'Sofia', 'Mendoza', 19, 'Desarrollo Web', '2026-03-15');
+VALUES (6, 'Sofia', 'Mendoza', 19, 'Desarrollo Web', '2026-03-15', 'sofia.mendoza@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (7, 'Juan', 'Perez', 21, 'Base de Datos', '2026-03-20');
+VALUES (7, 'Juan', 'Perez', 21, 'Base de Datos', '2026-03-20', 'juan.perez.bd@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (8, 'Daniela', 'Ortiz', 24, 'Programacion', '2026-04-05');
+VALUES (8, 'Daniela', 'Ortiz', 24, 'Programacion', '2026-04-05', 'daniela.ortiz@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (9, 'Miguel', 'Castro', 27, 'Redes', '2026-04-18');
+VALUES (9, 'Miguel', 'Castro', 27, 'Redes', '2026-04-18', 'miguel.castro@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (10, 'Maria', 'Lopez', 20, 'Programacion', '2026-04-30');
+VALUES (10, 'Maria', 'Lopez', 20, 'Programacion', '2026-04-30', 'maria.lopez.prog@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (11, 'Pedro', 'Sanchez', 30, 'Base de Datos', '2026-05-02');
+VALUES (11, 'Pedro', 'Sanchez', 30, 'Base de Datos', '2026-05-02', 'pedro.sanchez@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (12, 'Camila', 'Vega', 23, 'Desarrollo Web', '2026-05-11');
+VALUES (12, 'Camila', 'Vega', 23, 'Desarrollo Web', '2026-05-11', 'camila.vega@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (13, 'Andres', 'Morales', 18, 'Programacion', '2026-05-20');
+VALUES (13, 'Andres', 'Morales', 18, 'Programacion', '2026-05-20', 'andres.morales@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (14, 'Elena', 'Gualpa', 26, 'Base de Datos', '2026-06-01');
+VALUES (14, 'Elena', 'Gualpa', 26, 'Base de Datos', '2026-06-01', 'elena.gualpa@gmail.com');
 
 INSERT INTO estudiantes
-VALUES (15, 'Gabriel', 'Ortiz', 16, 'Redes', '2026-06-15');
+VALUES (15, 'Gabriel', 'Ortiz', 16, 'Redes', '2026-06-15', 'gabriel.ortiz@gmail.com');
 
 -- CONSULTAS SELECT
 
@@ -81,14 +86,6 @@ WHERE edad BETWEEN 18 AND 25;
 SELECT * FROM estudiantes
 WHERE curso = 'Base de Datos';
 
--- 6. Mostrar estudiantes registrados después de 2026-03-01
-SELECT * FROM estudiantes
-WHERE fecha_registro > '2026-03-01';
-
--- 7. Mostrar estudiantes registrados entre 2026-01-01 y 2026-04-30
-SELECT * FROM estudiantes
-WHERE fecha_registro BETWEEN '2026-01-01' AND '2026-04-30';
-
 -- ACTUALIZAR DATOS
 
 -- 1. Cambiar curso
@@ -109,14 +106,25 @@ WHERE id_estudiante = 3;
 -- 4. Cambiar varios campos
 UPDATE estudiantes
 SET edad = 23,
-	curso = 'Programacion'
+	curso = 'Programacion',
+	correo = 'ana.programacion@gmail.com'
 WHERE id_estudiante = 4;
 
 -- 5. Cambiar nombre y fecha
 UPDATE estudiantes
 SET nombres = 'Luis Alberto',
-	fecha_registro = '2026-03-05'
+	fecha_registro = '2026-03-05',
+	correo = 'luis.alberto@gmail.com'
 WHERE id_estudiante = 5;
+
+-- CONSULTAS UTILIZANDO CORREO
+
+SELECT nombres, curso, correo
+FROM estudiantes;
+
+SELECT nombres, apellidos, correo
+FROM estudiantes
+WHERE curso = 'Base de Datos';
 
 -- ELIMINAR DATOS
 
@@ -141,7 +149,10 @@ DELETE FROM estudiantes
 WHERE nombres = 'Camila'
 AND apellidos = 'Vega';
 
--- AGREGAR COLUMNA CORREO
+-- 6. Mostrar estudiantes registrados después de 2026-03-01
+SELECT * FROM estudiantes
+WHERE fecha_registro > '2026-03-01';
 
-ALTER TABLE estudiantes
-ADD COLUMN correo VARCHAR(100);
+-- 7. Mostrar estudiantes registrados entre 2026-01-01 y 2026-04-30
+SELECT * FROM estudiantes
+WHERE fecha_registro BETWEEN '2026-01-01' AND '2026-04-30';
