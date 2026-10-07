@@ -140,3 +140,8 @@ WHERE fecha_registro = '2026-05-20';
 DELETE FROM estudiantes
 WHERE nombres = 'Camila'
 AND apellidos = 'Vega';
+
+-- AGREGAR COLUMNA CORREO
+
+ALTER TABLE estudiantes
+ADD COLUMN correo VARCHAR(100);
